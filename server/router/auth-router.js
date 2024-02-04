@@ -14,6 +14,4 @@ router
     .route("/login")
     .post(authcontroler.login);
 
-
-
 module.exports = router;
