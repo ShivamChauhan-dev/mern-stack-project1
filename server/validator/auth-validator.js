@@ -36,4 +36,5 @@ const loginSchema = z.object({
         .min(7, { message: "Password must be at least 7 characters" })
         .max(1024, { message: "Password must not be greater than 1024 characters" }),
 })
+
 module.exports = (signupSchema, loginSchema);

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-// import { useAuth } from "../store/auth";
+import { useAuth } from "../store/auth";
 // import { toast } from "react-toastify";
 
 export const Login = () => {
@@ -11,8 +11,9 @@ export const Login = () => {
 
   const navigate = useNavigate();
   // const { storeTokenInLS, API } = useAuth();
-
+  const {storeTokenInLS} = useAuth()
   // const URL = `${API}/api/auth/login`;
+  const URL = "http://localhost:5000/api/auth/login";
 
   const handleInput = (e) => {
     let name = e.target.name;
@@ -21,6 +22,7 @@ export const Login = () => {
     setUser({
       ...user,
       [name]: value,
+      
     });
   };
 
@@ -40,8 +42,10 @@ export const Login = () => {
       // const res_data = await response.json();
 
       if (response.ok) {
-        // alert("Login Successful");
+        alert("Login Successful");
         // storeTokenInLS(res_data.token);
+        const res_data = await response.json();
+        storeTokenInLS(res_data.token);
 
         setUser({ email: "", password: "" });
         // toast.success("Login successful");
@@ -108,7 +112,7 @@ export const Login = () => {
 
                   <br />
                   <button type="submit" className="btn btn-submit">
-                    Register Now
+                    Login
                   </button>
                 </form>
               </div>

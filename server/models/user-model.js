@@ -63,7 +63,7 @@ userSchema.methods.generateToken = async function () {
             email: this.email,
             isAdmin: this.isAdmin,
         },
-        process.env.KWT_SECRET_KEY,
+        process.env.JWT_SECRET_KEY,
         {
             expiresIn: "30d",
         }

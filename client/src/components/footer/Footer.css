@@ -4,3 +4,7 @@ footer {
     background-color: var(--btn-color);
     margin-top: auto;
 }
+
+.container{
+    /* background-color: rgb(0, 0, 0); */
+}
